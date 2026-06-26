@@ -1,228 +1,153 @@
-\# 🚀 AI Resume Analyzer
+# 🚀 AI Resume Analyzer
 
-\### AI Powered Resume Screening System using Spring AI, Spring Boot Microservices, Ollama \& Angular
+### AI Powered Resume Screening System using Spring AI, Spring Boot Microservices, Ollama & Angular
 
-
-
-\## 📌 Project Overview
-
-
+## 📌 Project Overview
 
 AI Resume Analyzer is a full-stack, AI-powered Resume Screening System designed to automate the recruitment workflow.
 
-
-
 Instead of manually reviewing hundreds of resumes, recruiters can create job openings, while candidates upload their resumes for specific jobs. The system automatically extracts structured information from resumes using AI, compares it with the Job Description, calculates an ATS (Applicant Tracking System) score, identifies matched and missing skills, and generates AI-powered recommendations.
-
-
 
 The project follows a Microservices Architecture, where every business functionality is implemented as an independent Spring Boot service communicating through REST APIs behind an API Gateway.
 
-
-
 The application also includes a modern Angular frontend that provides separate interfaces for Recruiters and Candidates.
 
+---
 
+# ✨ Key Features
 
-\---
+## 👨‍💼 Recruiter Portal
 
+- Create Job Descriptions
 
+- View All Jobs
 
-\# ✨ Key Features
+- Update Existing Jobs
 
+- Delete Jobs
 
+- Search Jobs by:
 
-\## 👨‍💼 Recruiter Portal
+- Company
 
+- Job Title
 
+- Location
 
-\- Create Job Descriptions
+- View Resume List (For Specific Job and also search Resume By Id)
 
-\- View All Jobs
+- Download Candidate Resume
 
-\- Update Existing Jobs
+- View AI Analysis
 
-\- Delete Jobs
+- ATS Score
 
-\- Search Jobs by:
+- Missing Skills
 
-&#x20;   - Company
+- Matched Skills
 
-&#x20;   - Job Title
+- AI Recommendation
 
-&#x20;   - Location
+---
 
-\- View Resume List (For Specific Job and also search Resume By Id)
+## 👨‍🎓 Candidate Portal
 
-\- Download Candidate Resume
+- Browse Available Jobs
 
-\- View AI Analysis 
+- Search Jobs
 
-\- ATS Score
+- View Complete Job Details
 
-\- Missing Skills
+- Apply for Specific Job
 
-\- Matched Skills
+- Upload Resume (PDF)
 
-\- AI Recommendation
+- One Candidate → One Application Per Job
 
+- Automatic Resume Processing
 
+---
 
-\---
-
-
-
-\## 👨‍🎓 Candidate Portal
-
-
-
-\- Browse Available Jobs
-
-\- Search Jobs
-
-\- View Complete Job Details
-
-\- Apply for Specific Job
-
-\- Upload Resume (PDF)
-
-\- One Candidate → One Application Per Job
-
-\- Automatic Resume Processing
-
-
-
-\---
-
-
-
-\# 🤖 AI Powered Resume Processing
-
-
+# 🤖 AI Powered Resume Processing
 
 After a candidate submits a resume, the system performs the following AI pipeline automatically:
 
-
-
-\### Step 1
+### Step 1
 
 Resume is uploaded into Resume Service.
 
-
-
 ↓
 
-
-
-\### Step 2
+### Step 2
 
 Resume Parser Service extracts text from the PDF.
 
-
-
 ↓
 
-
-
-\### Step 3
+### Step 3
 
 Spring AI + Ollama parses the resume into structured JSON.
 
-
-
 Extracted Information:
 
+- Candidate Name
 
+- Skills
 
-\- Candidate Name
+- Education
 
-\- Skills
+- Experience
 
-\- Education
+- Projects
 
-\- Experience
-
-\- Projects
-
-\- Certifications
-
-
+- Certifications
 
 ↓
 
-
-
-\### Step 4
-
-
+### Step 4
 
 AI Service fetches:
 
+- Parsed Resume
 
-
-\- Parsed Resume
-
-\- Job Description
-
-
+- Job Description
 
 ↓
 
-
-
-\### Step 5
-
-
+### Step 5
 
 Spring AI compares both documents and generates:
 
+- ATS Score
 
+- Matched Skills
 
-\- ATS Score
+- Missing Skills
 
-\- Matched Skills
-
-\- Missing Skills
-
-\- Candidate Recommendation
-
-
+- Candidate Recommendation
 
 ↓
 
-
-
-\### Step 6
-
-
+### Step 6
 
 The processed results are stored in PostgreSQL and become available to Recruiters.
 
+---
 
-
-\---
-
-
-
-\# 🏗 Project Architecture
-
-
+# 🏗 Project Architecture
 
 The project follows a Microservices Architecture.
 
 
-
-```
-
 Angular Frontend
 
-&#x20;       │
+        │
 
-&#x20;       ▼
+        ▼
 
 API Gateway
 
-&#x20;       │
+        ↓
 
 ──────────────────────────────────────
 
@@ -236,39 +161,24 @@ API Gateway
 
 └── AI Service
 
-&#x20;       │
-
-&#x20;       ▼
+        ↓
 
 PostgreSQL Database
 
-```
-
-
-
 Each microservice is independently deployable and communicates using REST APIs.
 
+---
 
+# 🔄 Complete Workflow
 
-\---
+## Recruiter Flow
 
-
-
-\# 🔄 Complete Workflow
-
-
-
-\## Recruiter Flow
-
-
-
-```
 
 Recruiter Dashboard
 
 
 
-&#x20;       │
+        ↓
 
 
 
@@ -276,7 +186,7 @@ Create Job
 
 
 
-&#x20;       │
+        ↓
 
 
 
@@ -284,7 +194,7 @@ Job Stored in Database
 
 
 
-&#x20;       │
+        ↓
 
 
 
@@ -292,7 +202,7 @@ Candidate Applies
 
 
 
-&#x20;       │
+        ↓
 
 
 
@@ -300,7 +210,7 @@ Recruiter Opens Resume List
 
 
 
-&#x20;       │
+        ↓
 
 
 
@@ -308,31 +218,22 @@ Recruiter Views AI Results
 
 
 
-&#x20;       │
+        ↓
 
 
 
 Recruiter Downloads Resume
 
-```
+---
 
+## Candidate Flow
 
-
-\---
-
-
-
-\## Candidate Flow
-
-
-
-```
 
 Landing Page (End User Card)
 
 
 
-&#x20;     │
+      ↓
 
 
 
@@ -340,7 +241,7 @@ Browse Jobs
 
 
 
-&#x20;     │
+      ↓
 
 
 
@@ -348,7 +249,7 @@ Filter Jobs
 
 
 
-&#x20;     │
+      ↓
 
 
 
@@ -356,7 +257,7 @@ Apply for Job
 
 
 
-&#x20;     │
+      ↓
 
 
 
@@ -364,7 +265,7 @@ Fill Details
 
 
 
-&#x20;     │
+      ↓
 
 
 
@@ -372,7 +273,7 @@ Upload Resume
 
 
 
-&#x20;     │
+      ↓
 
 
 
@@ -380,7 +281,7 @@ Submit Application
 
 
 
-&#x20;     │
+      ↓
 
 
 
@@ -388,31 +289,22 @@ Resume Stored
 
 
 
-&#x20;     │
+      ↓
 
 
 
 AI Processing Starts
 
-```
+---
 
+# 🧠 AI Processing Workflow
 
-
-\---
-
-
-
-\# 🧠 AI Processing Workflow
-
-
-
-```
 
 Resume Upload
 
 
 
-&#x20;       │
+        ↓
 
 
 
@@ -420,7 +312,7 @@ Resume Service
 
 
 
-&#x20;       │
+        ↓
 
 
 
@@ -428,7 +320,7 @@ Resume Parser Service
 
 
 
-&#x20;       │
+        ↓
 
 
 
@@ -436,7 +328,7 @@ Extract Resume Text
 
 
 
-&#x20;       │
+        ↓
 
 
 
@@ -444,7 +336,7 @@ Spring AI + Ollama
 
 
 
-&#x20;       │
+        ↓
 
 
 
@@ -452,7 +344,7 @@ Structured Resume JSON
 
 
 
-&#x20;       │
+        ↓
 
 
 
@@ -460,7 +352,7 @@ AI Service
 
 
 
-&#x20;       │
+        ↓
 
 
 
@@ -468,7 +360,7 @@ Compare with Job Description
 
 
 
-&#x20;       │
+        ↓
 
 
 
@@ -476,7 +368,7 @@ Generate ATS Score
 
 
 
-&#x20;       │
+        ↓
 
 
 
@@ -484,455 +376,312 @@ Generate Recommendations
 
 
 
-&#x20;       │
+        ↓
 
 
 
 Save Results
 
-```
+---
 
+# 📂 Microservices
 
-
-\---
-
-
-
-\# 📂 Microservices
-
-
-
-\## 1️⃣ Job Description Service
-
-
+## 1️⃣ Job Description Service
 
 Responsible for Job Management.
 
+### Responsibilities
 
+- Create Job
 
-\### Responsibilities
+- Update Job
 
+- Delete Job
 
+- Fetch Jobs (View All Jobs)
 
-\- Create Job
+- Search Jobs (Filter By Company Name/Location/JobTitle)
 
-\- Update Job
+---
 
-\- Delete Job
-
-\- Fetch Jobs (View All Jobs)
-
-\- Search Jobs (Filter By Company Name/Location/JobTitle)
-
-
-
-\---
-
-
-
-\## 2️⃣ Resume Service
-
-
+## 2️⃣ Resume Service
 
 Responsible for Candidate Resume Management.
 
+### Responsibilities
 
+- Upload Resume
 
-\### Responsibilities
+- Download Resume
 
+- View Resume
 
+-getResumeById
 
-\- Upload Resume
+-getResumeByJobId
 
-\- Download Resume
+-deleteResume
 
-\- View Resume
+-getAllResumes
 
-\-getResumeById
+---
 
-\-getResumeByJobId
-
-\-deleteResume
-
-\-getAllResumes
-
-
-
-\---
-
-
-
-\## 3️⃣ Resume Parser Service
-
-
+## 3️⃣ Resume Parser Service
 
 Responsible for Resume Parsing.
 
-
-
 Uses
 
+- Spring AI
 
-
-\- Spring AI
-
-\- Ollama
-
-
+- Ollama
 
 Extracts
 
+- Skills
 
+- Education
 
-\- Skills
+- Experience
 
-\- Education
-
-\- Experience
-
-\- Projects
-
-
+- Projects
 
 Returns Structured JSON Resume Data.
 
+---
 
-
-\---
-
-
-
-\## 4️⃣ AI Service
-
-
+## 4️⃣ AI Service
 
 Responsible for AI Analysis.
 
-
-
 Performs
 
+- Resume Parsing Result Retrieval
 
+- Job Description Retrieval
 
-\- Resume Parsing Result Retrieval
+- Skill Matching
 
-\- Job Description Retrieval
+- ATS Score Calculation
 
-\- Skill Matching
+- Missing Skill Detection
 
-\- ATS Score Calculation
+- AI Recommendation Generation
 
-\- Missing Skill Detection
+---
 
-\- AI Recommendation Generation
-
-
-
-\---
-
-
-
-\# 🗄 Database
-
-
+# 🗄 Database
 
 The application uses PostgreSQL.
 
-
-
-\## Job Table
-
-
+## Job Table
 
 Stores
 
-\- id
+- id
 
-\- Company Name
+- Company Name
 
-\- Description
+- Description
 
-\- Additional Information
+- Additional Information
 
-\- Location
+- Location
 
-\- Experience
+- Experience
 
-\- Job Title
+- Job Title
 
+---
 
-
-\---
-
-
-
-\## Resume Table
-
-
+## Resume Table
 
 Stores
 
+- id
 
+- Candidate Name
 
-\- id
+- Candidate Email
 
-\- Candidate Name
+- File Name
 
-\- Candidate Email
+- File Path
 
-\- File Name
+- File Type
 
-\- File Path
+- Job Id
 
-\- File Type
+- Phone
 
-\- Job Id
+- uploaded_at
 
-\- Phone
+- Skills
 
-\- uploaded\_at
+- Education
 
-\- Skills
+- Experience
 
-\- Education
+- Projects
 
-\- Experience
+- Certifications
 
-\- Projects
+---
 
-\- Certifications
+# 🛠 Technology Stack
 
-\---
+## Frontend
 
+- Angular
 
+- TypeScript
 
-\# 🛠 Technology Stack
+- HTML5
 
+- CSS3
 
+- Angular Router
 
-\## Frontend
+- FormsModule
 
+- HttpClient
 
+---
 
-\- Angular
+## Backend
 
-\- TypeScript
+- Java 21
 
-\- HTML5
+- Spring Boot
 
-\- CSS3
+- Spring AI
 
-\- Angular Router
+- Spring Data JPA
 
-\- FormsModule
+- Lombok
 
-\- HttpClient
+- REST APIs
 
+---
 
+## AI
 
-\---
+- Ollama
 
+- Llama 3
 
+- Spring AI
 
-\## Backend
+---
 
+## Database
 
+- PostgreSQL
 
-\- Java 21
+---
 
-\- Spring Boot
+## Build Tools
 
-\- Spring AI
+- Maven
 
-\- Spring Data JPA
+- npm
 
-\- Lombok
+-ng
 
-\- REST APIs
+---
 
+## Version Control
 
+- Git
 
-\---
+- GitHub
 
+---
 
+## 📷 Application Screenshots & Architecture
 
-\## AI
+### System Architecture
 
+![Architecture Diagram](Architecture_Diagram_For_AI_project.png)
 
+### Landing Page
 
-\- Ollama
+![Landing Page](Landing_Page.png)
 
-\- Llama 3
+### Candidate Job Listing
 
-\- Spring AI
+![Candidate Job Listing](Candidate_Job_Listing_Page.png)
 
+### Recruiter Dashboard
 
+![Recruiter Dashboard](Recruiter_Dashboard.png)
 
-\---
+### Resume List
 
+![Resume List Page](Resume_List_Page.png)
 
+### AI Results Page
 
-\## Database
+![AI Results Page](AI_Results_Page.png)
 
+### AI Analysis Page
 
+![AI Analysis Page](AI_Analysis_Page.png)
 
-\- PostgreSQL
+### Recruiter Management (CRUD)
 
+![Recruiter CRUD Page](Recruiter_CRUD_Page.png)
 
+# 🚀 Future Enhancements
 
-\---
+- JWT Authentication & Role-Based Authorization
 
+- Email Notification after Application Submission
 
+- Candidate Dashboard
 
-\## Build Tools
+- Asynchronous AI Processing using @Async or Message Queue
 
+- Cloud Deployment (Render/AWS)
 
+---
 
-\- Maven
-
-\- npm
-
-\-ng
-
-
-
-\---
-
-
-
-\## Version Control
-
-
-
-\- Git
-
-\- GitHub
-
-
-
-\---
-
-
-
-\## 📷 Application Screenshots \& Architecture
-
-
-
-\### System Architecture
-
-!\[Architecture Diagram](Architecture\_Diagram\_For\_AI\_project.png)
-
-
-
-\### Landing Page
-
-!\[Landing Page](Landing\_Page.png)
-
-
-
-\### Candidate Job Listing
-
-!\[Candidate Job Listing](Candidate\_Job\_Listing\_Page.png)
-
-
-
-\### Recruiter Dashboard
-
-!\[Recruiter Dashboard](Recruiter\_Dashboard.png)
-
-
-
-\### Resume List
-
-!\[Resume List Page](Resume\_List\_Page.png)
-
-
-
-\###AI Results Page
-
-!\[AI Results Page](AI\_Results\_Page.png)
-
-
-
-\###AI Analysis Page
-
-!\[AI Analysis Page](AI\_Analysis\_Page.png)
-
-
-
-\### Recruiter Management (CRUD)
-
-!\[Recruiter CRUD Page](Recruiter\_CRUD\_Page.png)
-
-
-
-\# 🚀 Future Enhancements
-
-
-
-\- JWT Authentication \& Role-Based Authorization
-
-\- Email Notification after Application Submission
-
-\- Candidate Dashboard
-
-\- Asynchronous AI Processing using `@Async` or Message Queue
-
-\- Cloud Deployment (Render/AWS)
-
-
-
-\---
-
-
-
-\# 📖 Learning Outcomes
-
-
+# 📖 Learning Outcomes
 
 This project demonstrates practical implementation of:
 
+- Microservices Architecture
 
+- REST API Communication
 
-\- Microservices Architecture
+- Spring AI Integration
 
-\- REST API Communication
+- Ollama Integration
 
-\- Spring AI Integration
+- AI Powered Resume Parsing
 
-\- Ollama Integration
+- ATS Score Generation
 
-\- AI Powered Resume Parsing
+- Angular Frontend Development
 
-\- ATS Score Generation
+- PostgreSQL Database Design
 
-\- Angular Frontend Development
+- File Upload Handling
 
-\- PostgreSQL Database Design
+- PDF Processing
 
-\- File Upload Handling
+- Clean Layered Architecture
 
-\- PDF Processing
+- DTO Pattern
 
-\- Clean Layered Architecture
+- Repository Pattern
 
-\- DTO Pattern
+- Service Layer Design
 
-\- Repository Pattern
+- API Gateway Routing
 
-\- Service Layer Design
+---
 
-\- API Gateway Routing
-
-
-
-\---
-
-
-
-\# 📄 Project Summary
-
-
+# 📄 Project Summary
 
 AI Resume Analyzer is a production-style recruitment platform that combines modern Java backend development with Generative AI to automate resume screening. Recruiters can efficiently manage job postings and evaluate candidates using AI-generated insights, while candidates enjoy a streamlined application process. The system showcases real-world concepts such as Spring Boot Microservices, API Gateway, Spring AI, Ollama integration, RESTful communication, PostgreSQL persistence, and Angular frontend development, making it a comprehensive full-stack AI project suitable for enterprise-level applications.
-
