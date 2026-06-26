@@ -1,0 +1,133 @@
+<div class="container">
+
+  <h2>AI Results</h2>
+<!--  <p>Total Resumes = {{ resumes.length }}</p>-->
+
+  <table class="resume-table">
+
+    <thead>
+    <tr>
+      <th>Resume ID</th>
+      <th>Job ID</th>
+      <th>Candidate Name</th>
+      <th>Skills</th>
+      <th>Experience</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+
+      @for (resume of resumes; track resume.resumeId) {
+
+        <tr>
+
+          <td>{{ resume.resumeId }}</td>
+          <td>{{ resume.jobId }}</td>
+          <td>{{ resume.candidateName }}</td>
+          <td>{{ resume.skillsPreview }}</td>
+          <td>{{ resume.experienceSummary }}</td>
+
+          <td>
+            <button
+              type="button"
+              class="analysis-btn"
+              (click)="openAnalysis(resume.resumeId, resume.jobId)">
+              AI Analysis
+            </button>
+          </td>
+
+        </tr>
+
+      }
+
+    </tbody>
+
+  </table>
+
+</div>
+
+<!-- AI RESULT MODAL -->
+
+@if (showModal) {
+
+  <div class="modal-backdrop">
+
+  <div class="modal-box">
+
+    <h2>AI Analysis Result</h2>
+
+    <!-- Loading -->
+
+    @if (loading) {
+      <div>
+
+      <h3>Analyzing Resume...</h3>
+
+      <p>Please wait while AI generates ATS score.</p>
+
+    </div>
+    }
+
+
+    <!-- Result -->
+
+    @if (!loading && aiAnalysis) {
+      <div>
+
+      <p>
+        <strong>Resume ID:</strong>
+        {{ aiAnalysis.resumeId }}
+      </p>
+
+      <p>
+        <strong>Job ID:</strong>
+        {{ aiAnalysis.jobId }}
+      </p>
+
+      <p>
+        <strong>ATS Score:</strong>
+        {{ aiAnalysis.atsScore }}
+      </p>
+
+      <p>
+        <strong>Matched Skills:</strong>
+      </p>
+
+      <ul>
+        @for (skill of aiAnalysis.matchedSkills; track skill) {
+          <li>{{ skill }}</li>
+        }
+      </ul>
+
+      <p>
+        <strong>Missing Skills:</strong>
+      </p>
+
+      <ul>
+        @for (skill of aiAnalysis.missingSkills; track skill) {
+          <li>{{ skill }}</li>
+        }
+      </ul>
+
+      <p>
+        <strong>Recommendation:</strong>
+      </p>
+
+      <p>{{ aiAnalysis.recommendation }}</p>
+
+    </div>
+    }
+    <button
+      type="button"
+      class="close-btn"
+      (click)="closeModal()">
+
+      Close
+
+    </button>
+
+  </div>
+</div>
+
+}
+

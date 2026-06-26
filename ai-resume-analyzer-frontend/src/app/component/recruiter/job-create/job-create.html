@@ -1,0 +1,23 @@
+<div class="job-container">
+
+  <h2>Create Job</h2>
+
+  <form (ngSubmit)="createJob()">
+
+    <!-- Company Name -->
+    <input type="text" placeholder="Company Name" [(ngModel)]="job.companyName" name="companyName" required/>
+    <!-- Job Title -->
+    <input type="text" placeholder="Job Title" [(ngModel)]="job.jobTitle" name="jobTitle" required/>
+    <!-- Description -->
+    <textarea placeholder="Job Description" [(ngModel)]="job.description" name="description"></textarea>
+    <!-- Additional Info -->
+    <textarea placeholder="Additional Information" [(ngModel)]="job.additionalInfo" name="additionalInfo"></textarea>
+    <!-- Location -->
+    <input type="text" placeholder="Location" [(ngModel)]="job.location" name="location"/>
+    <!-- Experience -->
+    <input type="number" placeholder="Experience" [(ngModel)]="job.experience" name="experience"/>
+    <!-- Submit Button -->
+    <button type="submit">Create Job</button>
+
+  </form>
+</div>

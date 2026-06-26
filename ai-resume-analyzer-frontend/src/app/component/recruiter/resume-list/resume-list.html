@@ -1,0 +1,74 @@
+<div class="container">
+
+  <h2>Resume List</h2>
+
+  <!-- FILTER SECTION -->
+
+  <div class="filter-section">
+
+    <input
+      type="text"
+      placeholder="Enter Job ID"
+      [(ngModel)]="jobId"
+    />
+
+    <button (click)="filterByJobId()">
+      Search
+    </button>
+
+  </div>
+
+  <br>
+
+  <!-- RESUME TABLE -->
+
+  <table class="table table-bordered table-hover">
+
+    <thead>
+
+    <tr>
+
+      <th>Resume ID</th>
+      <th>Job ID</th>
+      <th>Candidate Name</th>
+      <th>Skills</th>
+      <th>Experience</th>
+      <th>Actions</th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr *ngFor="let resume of resumes">
+
+      <td>{{ resume.resumeId }}</td>
+
+      <td>{{ resume.jobId }}</td>
+
+      <td>{{ resume.candidateName }}</td>
+
+      <td>{{ resume.skillsPreview }}</td>
+
+      <td>{{ resume.experienceSummary }}</td>
+
+      <td>
+
+        <button (click)="viewResume(resume.resumeId)">
+          View
+        </button>
+
+        <button (click)="downloadResume(resume.resumeId)">
+          Download
+        </button>
+
+      </td>
+
+    </tr>
+
+    </tbody>
+
+  </table>
+
+</div>

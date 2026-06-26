@@ -1,0 +1,100 @@
+.container {
+  width: 90%;
+  margin: 30px auto;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.resume-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.resume-table th {
+  background-color: #1976d2;
+  color: white;
+  padding: 12px;
+}
+
+.resume-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.resume-table tr:nth-child(even) {
+  background-color: #f5f5f5;
+}
+
+.analysis-btn {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.analysis-btn:hover {
+  background-color: #388e3c;
+}
+
+/* Modal Backdrop */
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  background: rgba(0, 0, 0, 0.5);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 99999;
+}
+
+/* Modal Box */
+
+.modal-box {
+  background: white;
+
+  width: 600px;
+  max-width: 90%;
+
+  padding: 25px;
+
+  border-radius: 8px;
+
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+
+  z-index: 100000;
+
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.close-btn {
+  margin-top: 20px;
+
+  background: red;
+  color: white;
+
+  border: none;
+
+  padding: 10px 15px;
+
+  cursor: pointer;
+
+  border-radius: 4px;
+}
+
+.close-btn:hover {
+  background: darkred;
+}

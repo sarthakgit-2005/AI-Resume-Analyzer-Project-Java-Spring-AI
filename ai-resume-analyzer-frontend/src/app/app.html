@@ -1,0 +1,34 @@
+<!--<nav>
+  <a routerLink="/" >Home</a>
+  <a routerLink="/job-list">Job List</a>
+  <a routerLink="/job-create">Create Job</a>
+</nav>
+-->
+<router-outlet></router-outlet>
+
+
+<!-- routerLink: when user clicks on this link then angular redirects to the particular link without refreshing the page
+
+why use routerLink instead of anchor tag
+-> because angular is an single page application it changes the components dynamically  without reloading the entire page
+
+ what happens internally
+
+ User Clicks
+    ↓
+Angular Router Reads URL
+    ↓
+Finds Matching Route
+    ↓
+Loads Component
+    ↓
+Displays inside router-outlet
+
+what is router outlet
+-> router outlet is an placeholder where angular loads the components dynamically
+
+why to give joblist/create links inside the app.html
+-> bacuase it acts like a main shell/main layout
+things written inside the app.html appears globally
+
+-->

@@ -1,0 +1,65 @@
+<div class="dashboard-container">
+
+  <h1>Recruiter Dashboard</h1>
+
+  <p class="subtitle">Manage Jobs, Resumes and AI Analysis.</p>
+
+  <div class="dashboard-grid">       <!-- Used To Arrange The Cards In Grid Layout-->
+
+    <!-- Create Job -->
+    <div class="dashboard-card">     <!-- Each Recruiter Feature Are Shown As An Separate Card-->
+      <h2>Create Job</h2>
+      <p>Create new job openings for candidates.</p>
+
+      <button (click)="goToCreateJob()">Open</button>
+
+    </div>
+
+    <!-- View Jobs -->
+
+    <div class="dashboard-card">
+
+      <h2>View Jobs</h2>
+      <p>Update, Delete and View All Jobs.</p>
+
+      <button (click)="goToJobList()">Open</button>
+
+    </div>
+
+    <!-- Resume List -->
+
+    <div class="dashboard-card">
+
+      <h2>Resume List</h2>
+      <p>View Uploaded Candidate Resumes.</p>
+      <button (click)="goToResumeList()">Open</button>
+
+    </div>
+
+    <!-- AI Results -->
+
+    <div class="dashboard-card">
+
+      <h2>AI Results</h2>
+      <p>ATS Score, Skills and Recommendations.</p>
+
+      <button routerLink="/ai-results">Open</button>
+
+    </div>
+
+    <!-- Resume Details -->
+
+    <!--
+    <div class="dashboard-card">
+
+      <h2>Resume Details</h2>
+      <p>View, Complete, Resume Information</p>
+
+      <button (click)="goToResumeDetails()">Open</button>
+
+    </div>
+    -->
+
+  </div>
+
+</div>

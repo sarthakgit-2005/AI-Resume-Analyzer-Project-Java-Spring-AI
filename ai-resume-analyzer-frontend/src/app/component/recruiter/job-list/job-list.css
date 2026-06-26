@@ -1,0 +1,41 @@
+.container {
+  width: 90%;
+  margin: auto;
+}
+.filter-section {
+  margin-bottom: 20px;
+}
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  box-sizing: border-box;
+}
+button {
+  margin-top: 10px;
+  padding: 10px;
+  cursor: pointer;
+}
+.job-card {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+}
+.actions {
+
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+
+}
+.job-card p {
+
+  line-height: 1.6;
+
+}
+.update-form {
+  margin-top: 30px;
+  border-top: 2px solid black;
+  padding-top: 20px;
+}

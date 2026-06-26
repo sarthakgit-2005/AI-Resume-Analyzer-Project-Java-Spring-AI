@@ -1,0 +1,80 @@
+<div class="update-container">
+
+  <div class="update-card">
+
+    <h2>Update Job</h2>
+
+    <form (ngSubmit)="updateJob()">
+
+      <!-- Company Name -->
+      <label>Company Name</label>
+
+      <input
+        type="text"
+        [(ngModel)]="job.companyName"
+        name="companyName"
+      />
+
+      <!-- Job Title -->
+      <label>Job Title</label>
+
+      <input
+        type="text"
+        [(ngModel)]="job.jobTitle"
+        name="jobTitle"
+      />
+
+      <!-- Description -->
+      <label>Description</label>
+
+      <textarea
+        rows="5"
+        [(ngModel)]="job.description"
+        name="description">
+      </textarea>
+
+      <!-- Additional Info -->
+      <label>Additional Information</label>
+
+      <textarea
+        rows="4"
+        [(ngModel)]="job.additionalInfo"
+        name="additionalInfo">
+      </textarea>
+
+      <!-- Location -->
+      <label>Location</label>
+
+      <input
+        type="text"
+        [(ngModel)]="job.location"
+        name="location"
+      />
+
+      <!-- Experience -->
+      <label>Experience</label>
+
+      <input
+        type="number"
+        [(ngModel)]="job.experience"
+        name="experience"
+      />
+
+      <!-- Buttons -->
+      <div class="button-group">
+
+        <button type="submit">
+          Update Job
+        </button>
+
+        <button type="button" (click)="goBack()">
+          Back
+        </button>
+
+      </div>
+
+    </form>
+
+  </div>
+
+</div>

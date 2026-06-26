@@ -1,0 +1,128 @@
+<div class="container">
+
+  <h2>Available Jobs</h2>
+
+  <div class="filter-section">
+
+    <input
+      type="text"
+      placeholder="Filter By Company"
+      [(ngModel)]="companyName">
+
+    <button (click)="filterByCompanyName()">
+      Search
+    </button>
+
+    <button (click)="toggleFilters()">
+
+      {{ isExpanded
+      ? '▲ Hide Filters'
+      : '▼ More Filters' }}
+
+    </button>
+
+    <br><br>
+
+    <div *ngIf="isExpanded">
+
+      <input
+        type="text"
+        placeholder="Filter By Location"
+        [(ngModel)]="location">
+
+      <button (click)="filterByLocation()">
+        Search
+      </button>
+
+      <br><br>
+
+      <input
+        type="text"
+        placeholder="Filter By Job Title"
+        [(ngModel)]="jobTitle">
+
+      <button (click)="filterByJobTitle()">
+        Search
+      </button>
+
+      <button (click)="getAllJobs()">
+        Reset
+      </button>
+
+    </div>
+
+  </div>
+
+  <hr>
+
+  <div
+    class="job-card"
+    *ngFor="let job of jobs">
+
+    <h3>{{ job.jobTitle }}</h3>
+
+    <p>
+      <b>Company:</b>
+      {{ job.companyName }}
+    </p>
+
+    <p>
+      <b>Location:</b>
+      {{ job.location }}
+    </p>
+
+    <p>
+      <b>Experience:</b>
+      {{ job.experience }} Years
+    </p>
+
+    <div *ngIf="expandedJobId !== job.id">
+
+      <p>
+        {{ job.description | slice:0:120 }}...
+      </p>
+
+    </div>
+
+    <div *ngIf="expandedJobId === job.id">
+
+      <p>
+        <b>Description:</b>
+      </p>
+
+      <p>{{ job.description }}</p>
+
+      <p>
+        <b>Additional Information:</b>
+      </p>
+
+      <p>{{ job.additionalInfo }}</p>
+
+    </div>
+
+    <div class="actions">
+
+      <button
+        (click)="toggleJobDetails(job.id!)">
+
+        {{ expandedJobId === job.id
+        ? 'Close'
+        : 'View Details' }}
+
+      </button>
+
+      <button
+        class="apply-btn"
+        (click)="applyJob(job.id!)">
+
+        Apply Job
+
+      </button>
+
+    </div>
+
+    <hr>
+
+  </div>
+
+</div>

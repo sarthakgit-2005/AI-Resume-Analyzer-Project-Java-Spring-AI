@@ -1,0 +1,138 @@
+<div class="container">
+
+  <h2>Job List</h2>
+
+  <!-- =========================
+       FILTER SECTION (RECRUITER)
+  ========================== -->
+  <div class="filter-section">
+
+    <!-- ALWAYS VISIBLE -->
+    <input type="text"
+           placeholder="Filter By Company"
+           [(ngModel)]="companyName" />
+
+    <button (click)="filterByCompanyName()">
+      Search
+    </button>
+
+    <!-- TOGGLE BUTTON -->
+    <button (click)="toggleFilters()">
+      {{ isExpanded ? '▲ Hide Filters' : '▼ More Filters' }}
+    </button>
+
+    <br><br>
+
+    <!-- HIDDEN / SHOWN FILTERS -->
+    <div *ngIf="isExpanded">
+
+      <input type="text"
+             placeholder="Filter By Location"
+             [(ngModel)]="location" />
+
+      <button (click)="filterByLocation()">
+        Search
+      </button>
+
+      <br><br>
+
+      <input type="text"
+             placeholder="Filter By Job Title"
+             [(ngModel)]="jobTitle" />
+
+      <button (click)="filterByJobTitle()">
+        Search
+      </button>
+
+      <button (click)="getAllJobs()">
+        Reset
+      </button>
+
+    </div>
+
+  </div>
+
+  <hr />
+
+  <!-- =========================
+       JOB CARDS
+  ========================== -->
+  <!-- <div class="job-card" *ngFor="let job of jobs"> -->
+    @for (job of jobs; track job.id) {
+
+
+    <h3>{{ job.jobTitle }}</h3>
+
+    <p><b>Company:</b> {{ job.companyName }}</p>
+    <p><b>Location:</b> {{ job.location }}</p>
+    <p><b>Experience:</b> {{ job.experience }}</p>
+    <div *ngIf="expandedJobId !== job.id">
+
+  <p>
+    {{ job.description | slice:0:120 }}...
+  </p>
+
+</div>
+
+<div *ngIf="expandedJobId === job.id">
+
+  <p><b>Description:</b></p>
+
+  <p>{{ job.description }}</p>
+
+  <p><b>Additional Information:</b></p>
+
+  <p>{{ job.additionalInfo }}</p>
+
+</div>
+    
+
+    <!--=========================
+         RECRUITER ACTIONS
+    ========================== -->
+    
+    <div class="actions">
+
+      <!-- Update → Navigate to update page -->
+    
+    <!--  <button [routerLink]="['/update-job', job.id]">
+        Update
+      </button>
+       Delete → Direct API call 
+      <button (click)="deleteJob(job.id!)">
+        Delete
+      </button>
+    -->
+
+  <button
+    (click)="toggleJobDetails(job.id!)">
+
+    {{ expandedJobId === job.id
+       ? 'Close'
+       : 'View Details' }}
+
+  </button>
+
+  <button [routerLink]="['/update-job', job.id]">
+    Update
+  </button>
+
+  <button (click)="deleteJob(job.id!)">
+    Delete
+  </button>
+
+    </div>
+
+
+<!--    &lt;!&ndash; =========================-->
+<!--         CANDIDATE VIEW (OPTIONAL)-->
+<!--    ========================== &ndash;&gt;-->
+<!--    <div *ngIf="role === 'CANDIDATE'">-->
+<!--      <button>Apply</button>-->
+<!--    </div>-->
+
+  <!-- </div> -->
+   <hr/>
+}
+
+</div>

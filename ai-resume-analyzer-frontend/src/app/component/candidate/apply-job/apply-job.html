@@ -1,0 +1,82 @@
+<div class="page-container">
+
+  <div class="apply-card">
+
+    <h2>Apply For Job</h2>
+
+    <form (ngSubmit)="submitApplication()">
+
+      <div class="form-group">
+
+        <label>Candidate Name</label>
+
+        <input
+          type="text"
+          name="candidateName"
+          [(ngModel)]="candidate.candidateName"
+          required>
+
+      </div>
+
+      <div class="form-group">
+
+        <label>Email</label>
+
+        <input
+          type="email"
+          name="candidateEmail"
+          [(ngModel)]="candidate.candidateEmail"
+          required>
+
+      </div>
+
+      <div class="form-group">
+
+        <label>Phone</label>
+
+        <input
+          type="text"
+          name="phone"
+          [(ngModel)]="candidate.phone"
+          required>
+
+      </div>
+
+      <div class="form-group">
+
+        <label>Upload Resume (PDF)</label>
+
+        <input
+          type="file"
+          accept=".pdf"
+          (change)="onFileSelected($event)"
+          required>
+
+      </div>
+
+      <div class="button-group">
+
+        <button
+          type="submit"
+          class="submit-btn">
+
+          Submit Application
+
+        </button>
+
+        <button
+          type="button"
+          class="cancel-btn"
+          (click)="goBack()">
+
+          Cancel
+
+        </button>
+
+      </div>
+
+    </form>
+
+  </div>
+
+</div>

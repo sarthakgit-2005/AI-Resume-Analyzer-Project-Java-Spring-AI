@@ -1,0 +1,13 @@
+package org.airesume.resumeparserservice;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class ResumeParserServiceApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(ResumeParserServiceApplication.class, args);
+    }
+
+}
